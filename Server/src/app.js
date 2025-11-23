@@ -2,6 +2,8 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
+import videoRoutes from "./routes/video.routes.js";
+import commentRoutes from "./routes/comment.routes.js"
 import cors from "cors";
 import helmet from "helmet";
 import connectDB from "./dbConfig/index.js";
@@ -12,7 +14,7 @@ const app = express();
 app.use(cookieParser());
 app.use(
   helmet({
-    contentSecurityPolicy: false, // disable CSP if needed while developing
+    contentSecurityPolicy: false, 
   })
 );
 
@@ -41,3 +43,7 @@ connectDB()
 
 // Auth Routes
 app.use("/api/user", authRoutes);
+//Video Routes
+app.use("/api/video", videoRoutes);
+// Comment Routes
+app.use("/api/comment", commentRoutes);

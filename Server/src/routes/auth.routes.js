@@ -4,9 +4,9 @@ import {
   createUser,
   forgotPassword,
   loginUser,
+  logoutUser,
 } from "../controllers/auth.controller.js";
 import { upload } from "../middlewares/upload.js";
-import { verifyJWT } from "../middlewares/verifyJwt.js";
 
 const router = Router();
 
@@ -17,5 +17,6 @@ router.post(
 );
 router.post("/login", asyncHandler(loginUser));
 router.post("/forgot-password", asyncHandler(forgotPassword));
+router.post("/logout", asyncHandler(logoutUser));
 
 export default router;
